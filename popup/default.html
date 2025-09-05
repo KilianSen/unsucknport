@@ -1,11 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="style.css" />
-        <title>DEFAULT</title>
+        <title>UnSuckNPort</title>
     </head>
     <body>
+        <div class="container">
+            <h1>UnSuckNPort</h1>
+
+            <div class="status">
+                <p id="status-text">Bereit</p>
+            </div>
+
+            <div class="section">
+                <h3>Schnellstart</h3>
+                <p class="help-text">Überwacht :9100, :10101, :10100</p>
+                <button id="quick-monitor" class="btn btn-primary">Standard Ports überwachen</button>
+                <button id="stop-all" class="btn btn-danger">Alle Überwachungen stoppen</button>
+            </div>
+
+            <div class="section">
+                <h3>Benutzerdefinierte URLs</h3>
+                <textarea id="custom-urls" placeholder="Eine URL pro Zeile eingeben&#10;z.B.: http://localhost:3000&#10;https://example.com:8080"></textarea>
+                <button id="monitor-custom" class="btn btn-secondary">Benutzerdefinierte URLs überwachen</button>
+            </div>
+
+            <div class="section">
+                <h3>Monitoring-Einstellungen</h3>
+                <div class="setting">
+                    <label for="max-retries">Max. Retries:</label>
+                    <input type="number" id="max-retries" value="30" min="1" max="1000">
+                </div>
+                <div class="setting">
+                    <label for="initial-delay">Anfangsverzögerung (ms):</label>
+                    <input type="number" id="initial-delay" value="1000" min="100" max="30000">
+                </div>
+                <div class="setting">
+                    <label for="max-delay">Max. Verzögerung (ms):</label>
+                    <input type="number" id="max-delay" value="10000" min="1000" max="60000">
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Actions</h3>
+                <button id="toggle-panel" class="btn btn-info">Status-Panel hide/show</button>
+            </div>
+
+            <div class="section">
+                <h3>WebSocket Benachrichtigungen</h3>
+                <div class="websocket-status">
+                    <p id="ws-status">Client-Status: <span id="ws-status-text">Verbinde...</span></p>
+                    <p id="ws-url">Server: <span id="ws-url-text">ws://localhost:25566</span></p>
+                    <p id="ws-reconnect-status">Reconnect-Versuche: <span id="ws-reconnect-info" style="display: none;">0/10</span></p>
+                    <p id="ws-notifications">Benachrichtigungen: <span id="ws-notification-count">0</span></p>
+                </div>
+                <div class="info-box">
+                    <p><strong>WebSocket Client:</strong> Die Extension verbindet sich mit einem externen WebSocket-Server und zeigt eingehende Nachrichten als Browser-Benachrichtigungen an.</p>
+                </div>
+                <div class="setting">
+                    <label for="ws-server-url">WebSocket Server URL:</label>
+                    <input type="text" id="ws-server-url" value="ws://localhost:25566" placeholder="ws://localhost:25566">
+                </div>
+                <button id="ws-reconnect" class="btn btn-secondary">Neu verbinden</button>
+                <button id="ws-test" class="btn btn-info">Test-Nachricht senden</button>
+            </div>
+        </div>
 
         <script src="../js/ui_scripts/default.js"></script>
     </body>
