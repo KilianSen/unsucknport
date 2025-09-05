@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "NAME",
+  "version": "1.0",
+
+  "description": "DESCRIPTION",
+
+  "icons": {
+  		"48": "icons/default.png"
+  },
+  "browser_action": {
+    "default_icon": "icons/default.png",
+    "default_title": "TITLE",
+    "default_popup": "popup/default.html"
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.default.default/*"],
+      "js": ["js/scripts/default.js"]
+    }
+  ]
+
+}
